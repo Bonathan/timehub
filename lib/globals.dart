@@ -1,3 +1,4 @@
+// @dart=2.10
 import 'package:flutter/material.dart';
 import 'package:weather/weather.dart';
 import 'package:ionicons/ionicons.dart';
@@ -23,18 +24,11 @@ var currentWeatherTempFeel;
 var weatherIcon;
 
 var forecast;
-var plus3Forecast;
-var plus6Forecast;
-var plus9Forecast;
-var plus12Forecast;
-var plus15Forecast;
-var plus3ForecastIcon;
-var plus6ForecastIcon;
-var plus9ForecastIcon;
-var plus12ForecastIcon;
-var plus15ForecastIcon;
+var forecastIcon = List.filled(5, Icon(Icons.ac_unit), growable: true);
 
-final lightBlack = Colors.grey[900];
-final desaturatedRed = Colors.red[300];
+final cardBack = Colors.grey[300];
+final desaturatedRed = Colors.red[600];
+final darkGrey = Colors.grey[900];
+final trueBlack = Colors.black;
 
 final timeDateSmall = 0;

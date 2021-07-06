@@ -7,11 +7,11 @@ import 'package:weather/weather.dart';
 import 'package:flutter/material.dart';
 
 final DateFormat formatter = DateFormat('d MMMM');
-final DateFormat formatterTime = DateFormat('hh:mm');
+final DateFormat formatterTime = DateFormat('HH:mm');
 
 void getWeather() async {
   Weather weather =
-      await globals.weatherFactory.currentWeatherByCityName("Basel");
+      await globals.weatherFactory.currentWeatherByCityName("La Tzoumaz");
   globals.weather = weather;
   globals.currentWeather = weather.weatherDescription;
   globals.currentWeatherId = weather.weatherConditionCode;
@@ -21,7 +21,6 @@ void getWeather() async {
 }
 
 getWeatherIcon(requestedIcon) {
-  print("getWEather");
   //set icon
   if (requestedIcon.toString() == '01d') {
     globals.currentWeatherId = Icon(Ionicons.sunny_outline);
@@ -111,31 +110,35 @@ getWeatherIcon(requestedIcon) {
 
 setForecastIcon(requestedIcon, iconLocation) {
   var icon;
-  getWeatherIcon(requestedIcon);
+  icon = getWeatherIcon(requestedIcon);
+  iconLocation = icon;
+  print(icon);
+  print(globals.forecastIcon[1].toString());
+  print(iconLocation);
   Timer.periodic(Duration(minutes: 5), (Timer t) {
-    getWeatherIcon(requestedIcon);
+    icon = getWeatherIcon(requestedIcon);
     iconLocation = icon;
+    print("here");
+    return iconLocation;
   });
 }
 
 void getForecast() async {
   List<Weather> forecast =
-      await globals.weatherFactory.fiveDayForecastByCityName('Basel');
+      await globals.weatherFactory.fiveDayForecastByCityName('La Tzoumaz');
   globals.forecast = forecast;
-  globals.plus3Forecast = globals.forecast[0];
-  globals.plus6Forecast = globals.forecast[1];
-  globals.plus9Forecast = globals.forecast[2];
-  globals.plus12Forecast = globals.forecast[3];
-  globals.plus15Forecast = globals.forecast[4];
-  setForecastIcon(globals.forecast[0], globals.plus3ForecastIcon);
-  setForecastIcon(globals.forecast[1], globals.plus6ForecastIcon);
-  setForecastIcon(globals.forecast[2], globals.plus9ForecastIcon);
-  setForecastIcon(globals.forecast[3], globals.plus12ForecastIcon);
-  setForecastIcon(globals.forecast[4], globals.plus15ForecastIcon);
+  globals.forecastIcon[0] = getWeatherIcon(forecast[0].weatherIcon);
+  globals.forecastIcon[1] = getWeatherIcon(forecast[1].weatherIcon);
+  globals.forecastIcon[2] = getWeatherIcon(forecast[2].weatherIcon);
+  globals.forecastIcon[3] = getWeatherIcon(forecast[3].weatherIcon);
+  globals.forecastIcon[4] = getWeatherIcon(forecast[4].weatherIcon);
+}
+
+testForecastIcon(requestedIcon) {
 }
 
 getTime() {
-  globals.time = DateTime.now().toString();
+  globals.time = DateTime.now();
 }
 
 //><

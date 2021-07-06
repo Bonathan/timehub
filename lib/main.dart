@@ -1,5 +1,6 @@
 // @dart=2.10
 import 'dart:async';
+import 'dart:io';
 import 'package:timehub/cards.dart' as cards;
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -9,7 +10,7 @@ import 'package:intl/intl.dart';
 
 var formattedTime;
 final DateFormat formatter = DateFormat('d MMMM');
-final DateFormat formatterTime = DateFormat('hh:mm');
+final DateFormat formatterTime = DateFormat('HH:mm');
 final pageController = PageController(initialPage: 0);
 var time = DateTime.now();
 var month;
@@ -28,7 +29,7 @@ void main() {
   Timer.periodic(Duration(seconds: 1), (Timer t) => getTime());
   Timer.periodic(Duration(seconds: 1), (Timer t) => setTime());
   Timer.periodic(Duration(seconds: 1), (Timer t) => getWeather());
-  Timer.periodic(Duration(seconds: 1), (Timer t) => getForecast());
+  Timer.periodic(Duration(minutes: 5), (Timer t) => getForecast());
   runApp(MyApp());
 }
 
@@ -70,7 +71,7 @@ class _CardManagerState extends State<CardManager> {
         width: 500,
         child: PageView(
           controller: pageController,
-          children: [cards.Time(), cards.Forecast()],
+          children: [/*cards.Time(),*/ cards.Forecast()],
         ),
       ),
     ]);
