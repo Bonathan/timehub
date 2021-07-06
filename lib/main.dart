@@ -7,17 +7,26 @@ import 'package:timehub/functions.dart';
 import 'package:timehub/globals.dart' as globals;
 import 'package:intl/intl.dart';
 
+var formattedTime;
 final DateFormat formatter = DateFormat('d MMMM');
 final DateFormat formatterTime = DateFormat('hh:mm');
-var formattedTime;
 final pageController = PageController(initialPage: 0);
-var time;
+var time = DateTime.now();
+var month;
+var hour;
 
-void main() async {
+void setTime() {
+  time = DateTime.now();
+  month = formatter.format(time);
+  hour = formatterTime.format(time);
+}
+
+void main() {
   getTime();
   getForecast();
   getWeather();
   Timer.periodic(Duration(seconds: 1), (Timer t) => getTime());
+  Timer.periodic(Duration(seconds: 1), (Timer t) => setTime());
   Timer.periodic(Duration(seconds: 1), (Timer t) => getWeather());
   Timer.periodic(Duration(seconds: 1), (Timer t) => getForecast());
   runApp(MyApp());
@@ -76,6 +85,14 @@ class Time extends StatefulWidget {
 }
 
 class _TimeState extends State<Time> {
+  void initState() {
+    Timer.periodic(new Duration(seconds: 1), (timer) {
+      setState(() {
+        time = DateTime.now();
+      });
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -85,12 +102,12 @@ class _TimeState extends State<Time> {
             children: [
           Container(
             child: Column(children: [
-              Text(formatterTime.format(globals.time),
+              Text(formatterTime.format(time),
                   style: GoogleFonts.redHatDisplay(
                       textStyle: TextStyle(
-                          fontWeight: FontWeight.w500, fontSize: 125))),
+                          fontWeight: FontWeight.w500, fontSize: /*125*/ 125))),
               Text(
-                formatter.format(globals.time),
+                formatter.format(time),
                 style: GoogleFonts.redHatDisplay(
                     textStyle:
                         TextStyle(fontWeight: FontWeight.w300, fontSize: 25)),

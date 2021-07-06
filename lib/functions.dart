@@ -6,6 +6,9 @@ import 'package:timehub/globals.dart' as globals;
 import 'package:weather/weather.dart';
 import 'package:flutter/material.dart';
 
+final DateFormat formatter = DateFormat('d MMMM');
+final DateFormat formatterTime = DateFormat('hh:mm');
+
 void getWeather() async {
   Weather weather =
       await globals.weatherFactory.currentWeatherByCityName("Basel");
@@ -14,10 +17,11 @@ void getWeather() async {
   globals.currentWeatherId = weather.weatherConditionCode;
   globals.currentWeatherTemp = weather.temperature;
   globals.currentWeatherTempFeel = weather.tempFeelsLike;
-  globals.weatherIcon = getWeatherIcon(globals.weather.weatherIcon);
+  globals.weatherIcon = getWeatherIcon(weather.weatherIcon);
 }
 
 getWeatherIcon(requestedIcon) {
+  print("getWEather");
   //set icon
   if (requestedIcon.toString() == '01d') {
     globals.currentWeatherId = Icon(Ionicons.sunny_outline);
@@ -100,6 +104,8 @@ getWeatherIcon(requestedIcon) {
       Ionicons.cloud_outline,
       size: 50,
     );
+  } else {
+    return Icon(Ionicons.eye_off);
   }
 }
 
@@ -129,8 +135,7 @@ void getForecast() async {
 }
 
 getTime() {
-  globals.time = DateTime.now();
-  return globals.time;
+  globals.time = DateTime.now().toString();
 }
 
 //><

@@ -12,6 +12,8 @@ WeatherFactory weatherFactory =
     new WeatherFactory(privatekey.OpenWeatherAPIKey);
 
 var time;
+var formattedTimeHour;
+var formattedTimeMonth;
 
 var weather;
 var currentWeather;
