@@ -3,9 +3,9 @@ Open Time Hub is an open-source alternative to the Google Nest Hub. This project
 ## Features
 |Feature			|Function			|Status				|
 -------------|--------------|------------|
-|Time				|Shows the time with realtime updates| beta|
-|Current weather|Shows the current weather with an icon| beta|
-|Forecast|Shows the weather in +3 / +6 / +9 / etc. hours | development|
+|Time				|Shows the time with realtime updates| stable|
+|Current weather|Shows the current weather with an icon| stable (development)|
+|Forecast|Shows the weather in +3 / +6 / +9 / etc. hours | beta|
 |Music|Plays and controls music|planned|
 |Calendar|Google Calendar integration| planned|
 |Phone Integration|KDE / Zorin connect integration| planned|
