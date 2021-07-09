@@ -10,7 +10,6 @@ import 'package:intl/intl.dart';
 import 'dart:async';
 import 'package:material_clock/material_clock.dart' as materialClock;
 
-double cardWidth = 400;
 final DateFormat formatterTime = DateFormat('HH:mm');
 
 //
@@ -68,14 +67,25 @@ class Forecast extends StatelessWidget {
           color: globals.cardBack,
           boxShadow: globals.boxShadow,
         ),
-        width: cardWidth,
+        width: globals.cardWidth,
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.end,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
+            Container(
+              margin: EdgeInsets.only(top: 30),
+              child: Text(
+                "Forecast",
+                style: GoogleFonts.redHatDisplay(
+                    textStyle: TextStyle(
+                        color: globals.trueWhite,
+                        fontSize: 30,
+                        fontWeight: FontWeight.w800)),
+              ),
+            ),
             Container(
               margin: EdgeInsets.only(bottom: 30),
               child: ForecastWrapper(),
-            )
+            ),
           ],
         ));
   }
@@ -86,6 +96,8 @@ class ForecastWrapper extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    globals.deviceSize = MediaQuery.of(context).size;
+
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
@@ -126,6 +138,7 @@ class ForecastElement extends StatefulWidget {
 
   final int addedTime;
   var icon;
+  var time = DateTime.now();
   var forecastNumber;
 
   @override
@@ -134,11 +147,18 @@ class ForecastElement extends StatefulWidget {
 
 class _ForecastElementState extends State<ForecastElement> {
   void initState() {
+    Timer(new Duration(seconds: 5), () {
+      setState(() {
+        widget.icon = getWeatherIcon(
+            globals.forecast[widget.forecastNumber].weatherIcon, Colors.white);
+        widget.time = DateTime.now();
+      });
+    });
     Timer.periodic(new Duration(seconds: 5), (timer) {
       setState(() {
-        widget.icon =
-            getWeatherIcon(globals.forecast[widget.forecastNumber].weatherIcon);
-        globals.time = DateTime.now();
+        widget.icon = getWeatherIcon(
+            globals.forecast[widget.forecastNumber].weatherIcon, Colors.white);
+        widget.time = DateTime.now();
       });
     });
   }
@@ -149,21 +169,24 @@ class _ForecastElementState extends State<ForecastElement> {
         onTap: () {},
         child: Container(
           margin: EdgeInsets.all(1),
-          width: cardWidth / 5,
-          height: cardWidth / 2,
+          width: globals.cardWidth / 5,
+          height: globals.cardWidth / 2,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               widget.icon,
               Text(
                   formatterTime.format(
-                      globals.time.add(new Duration(hours: widget.addedTime))),
+                      widget.time.add(Duration(hours: widget.addedTime))),
                   style: GoogleFonts.redHatDisplay(
                       textStyle: TextStyle(
                           fontWeight: FontWeight.w900,
                           fontSize: 20,
-                          color: globals.trueBlack))),
-              Text("+${widget.addedTime} hours"),
+                          color: globals.trueWhite))),
+              Text(
+                "+${widget.addedTime} hours",
+                style: TextStyle(color: globals.trueWhite),
+              ),
             ],
           ),
         ));
