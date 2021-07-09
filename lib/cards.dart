@@ -12,7 +12,6 @@ import 'package:material_clock/material_clock.dart' as materialClock;
 
 double cardWidth = 400;
 final DateFormat formatterTime = DateFormat('HH:mm');
-var mondayIcon = Icon(Ionicons.cloud_outline);
 
 //
 //  Time
@@ -47,7 +46,7 @@ class Clock1 extends StatelessWidget {
         backgroundStyle: PaintingStyle.stroke,
         secondHandColor: globals.desaturatedRed,
         live: true,
-        time: DateTime.now(),
+        
       ),
     );
   }
@@ -70,7 +69,9 @@ class Forecast extends StatelessWidget {
         boxShadow: globals.boxShadow,
       ),
       width: cardWidth,
-      child: ForecastWrapper(),
+      child: Center(
+        child: ForecastWrapper(),
+      ),
     );
   }
 }
@@ -81,25 +82,57 @@ class ForecastWrapper extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
-      children: [MondayFore(), TuesFore()],
+      children: [
+        ForecastElement(
+            addedTime: 3, icon: globals.forecastIcon[0], forecastNumber: 0),
+        ForecastElement(
+          addedTime: 6,
+          icon: globals.forecastIcon[1],
+          forecastNumber: 1,
+        ),
+        ForecastElement(
+          addedTime: 9,
+          icon: globals.forecastIcon[2],
+          forecastNumber: 2,
+        ),
+        ForecastElement(
+          addedTime: 12,
+          icon: globals.forecastIcon[3],
+          forecastNumber: 3,
+        ),
+        ForecastElement(
+          addedTime: 15,
+          icon: globals.forecastIcon[4],
+          forecastNumber: 4,
+        ),
+      ],
     );
   }
 }
 
-class MondayFore extends StatefulWidget {
-  const MondayFore({Key key}) : super(key: key);
+class ForecastElement extends StatefulWidget {
+  ForecastElement({
+    Key key,
+    @required this.addedTime,
+    @required this.icon,
+    @required this.forecastNumber,
+  }) : super(key: key);
+
+  final int addedTime;
+  var icon;
+  var forecastNumber;
 
   @override
-  _MondayForeState createState() => _MondayForeState();
+  _ForecastElementState createState() => _ForecastElementState();
 }
 
-class _MondayForeState extends State<MondayFore> {
+class _ForecastElementState extends State<ForecastElement> {
   void initState() {
-    Timer.periodic(new Duration(minutes: 1), (timer) {
+    Timer.periodic(new Duration(seconds: 10), (timer) {
       setState(() {
+        widget.icon =
+            getWeatherIcon(globals.forecast[widget.forecastNumber].weatherIcon);
         globals.time = DateTime.now();
-        globals.forecastIcon[0] =
-            getWeatherIcon(globals.forecast[0].weatherIcon);
       });
     });
   }
@@ -115,54 +148,10 @@ class _MondayForeState extends State<MondayFore> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              globals.forecastIcon[0],
+              widget.icon,
               Text(
-                  formatterTime
-                      .format(globals.time.add(new Duration(hours: 3))),
-                  style: GoogleFonts.redHatDisplay(
-                      textStyle: TextStyle(
-                          fontWeight: FontWeight.w900,
-                          fontSize: 20,
-                          color: globals.trueBlack))),
-            ],
-          ),
-        ));
-  }
-}
-
-class TuesFore extends StatefulWidget {
-  const TuesFore({Key key}) : super(key: key);
-
-  @override
-  TuesForeState createState() => TuesForeState();
-}
-
-class TuesForeState extends State<TuesFore> {
-  void initState() {
-    Timer.periodic(new Duration(minutes: 1), (timer) {
-      setState(() {
-        globals.time = DateTime.now();
-        globals.forecastIcon[1] =
-            getWeatherIcon(globals.forecast[1].weatherIcon);
-      });
-    });
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return GestureDetector(
-        onTap: () {},
-        child: Container(
-          margin: EdgeInsets.all(1),
-          width: cardWidth / 5,
-          height: cardWidth / 2,
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              globals.forecastIcon[1],
-              Text(
-                  formatterTime
-                      .format(globals.time.add(new Duration(hours: 6))),
+                  formatterTime.format(
+                      globals.time.add(new Duration(hours: widget.addedTime))),
                   style: GoogleFonts.redHatDisplay(
                       textStyle: TextStyle(
                           fontWeight: FontWeight.w900,

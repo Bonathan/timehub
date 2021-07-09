@@ -23,8 +23,9 @@ var currentWeatherTemp;
 var currentWeatherTempFeel;
 var weatherIcon;
 
-var forecast;
-var forecastIcon = List.filled(5, Icon(Icons.ac_unit), growable: true);
+List<Weather> forecast;
+var forecastIcon =
+    List.filled(5, Icon(Ionicons.build_outline, size: 50), growable: true);
 
 final cardBack = Colors.grey[300];
 final desaturatedRed = Colors.red[600];

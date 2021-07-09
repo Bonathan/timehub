@@ -8,6 +8,7 @@ import 'package:flutter/material.dart';
 
 final DateFormat formatter = DateFormat('d MMMM');
 final DateFormat formatterTime = DateFormat('HH:mm');
+var forecastIcon;
 
 void getWeather() async {
   Weather weather =
@@ -18,6 +19,8 @@ void getWeather() async {
   globals.currentWeatherTemp = weather.temperature;
   globals.currentWeatherTempFeel = weather.tempFeelsLike;
   globals.weatherIcon = getWeatherIcon(weather.weatherIcon);
+  globals.forecast =
+      await globals.weatherFactory.fiveDayForecastByCityName('La Tzoumaz');
 }
 
 getWeatherIcon(requestedIcon) {
@@ -123,18 +126,16 @@ setForecastIcon(requestedIcon, iconLocation) {
   });
 }
 
-void getForecast() async {
+getForecast() async {
   List<Weather> forecast =
       await globals.weatherFactory.fiveDayForecastByCityName('La Tzoumaz');
   globals.forecast = forecast;
-  globals.forecastIcon[0] = getWeatherIcon(forecast[0].weatherIcon);
-  globals.forecastIcon[1] = getWeatherIcon(forecast[1].weatherIcon);
-  globals.forecastIcon[2] = getWeatherIcon(forecast[2].weatherIcon);
-  globals.forecastIcon[3] = getWeatherIcon(forecast[3].weatherIcon);
-  globals.forecastIcon[4] = getWeatherIcon(forecast[4].weatherIcon);
-}
-
-testForecastIcon(requestedIcon) {
+  print("I'm here");
+  forecastIcon[0] = getWeatherIcon(forecast[0].weatherIcon);
+  forecastIcon[1] = getWeatherIcon(forecast[1].weatherIcon);
+  forecastIcon[2] = getWeatherIcon(forecast[2].weatherIcon);
+  forecastIcon[3] = getWeatherIcon(forecast[3].weatherIcon);
+  forecastIcon[4] = getWeatherIcon(forecast[4].weatherIcon);
 }
 
 getTime() {
