@@ -62,17 +62,22 @@ class Forecast extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.all(25),
-      decoration: BoxDecoration(
-        borderRadius: globals.borderRadius,
-        color: globals.cardBack,
-        boxShadow: globals.boxShadow,
-      ),
-      width: cardWidth,
-      child: Center(
-        child: ForecastWrapper(),
-      ),
-    );
+        margin: EdgeInsets.all(25),
+        decoration: BoxDecoration(
+          borderRadius: globals.borderRadius,
+          color: globals.cardBack,
+          boxShadow: globals.boxShadow,
+        ),
+        width: cardWidth,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.end,
+          children: [
+            Container(
+              margin: EdgeInsets.only(bottom: 30),
+              child: ForecastWrapper(),
+            )
+          ],
+        ));
   }
 }
 
@@ -82,6 +87,7 @@ class ForecastWrapper extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
       children: [
         ForecastElement(
             addedTime: 3, icon: globals.forecastIcon[0], forecastNumber: 0),
@@ -128,7 +134,7 @@ class ForecastElement extends StatefulWidget {
 
 class _ForecastElementState extends State<ForecastElement> {
   void initState() {
-    Timer.periodic(new Duration(seconds: 10), (timer) {
+    Timer.periodic(new Duration(seconds: 5), (timer) {
       setState(() {
         widget.icon =
             getWeatherIcon(globals.forecast[widget.forecastNumber].weatherIcon);
@@ -157,6 +163,7 @@ class _ForecastElementState extends State<ForecastElement> {
                           fontWeight: FontWeight.w900,
                           fontSize: 20,
                           color: globals.trueBlack))),
+              Text("+${widget.addedTime} hours"),
             ],
           ),
         ));
