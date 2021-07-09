@@ -11,4 +11,4 @@ Open Time Hub is an open-source alternative to the Google Nest Hub. This project
 |Phone Integration|KDE / Zorin connect integration| planned|
 
 # Development
-As for coding, I am unexperienced and would appreciate it, if you, if you have experience with the Flutter framework, could contribute to this project, by just taking a quick look at the code and make some changes for the better.
+As for coding, I am inexperienced and would appreciate it, if you, if you have experience with the Flutter framework, could contribute to this project, by just taking a quick look at the code and make some changes for the better.
