@@ -21,6 +21,7 @@ void getWeather() async {
   globals.weatherIcon = getWeatherIcon(weather.weatherIcon, Colors.black);
   globals.forecast =
       await globals.weatherFactory.fiveDayForecastByCityName('La Tzoumaz');
+  print(globals.forecast[4].weatherIcon);
 }
 
 getWeatherIcon(requestedIcon, reqColor) {

@@ -159,6 +159,15 @@ class _ForecastElementState extends State<ForecastElement> {
         widget.icon = getWeatherIcon(
             globals.forecast[widget.forecastNumber].weatherIcon, Colors.white);
         widget.time = DateTime.now();
+        if (widget.icon == null) {
+          setState(() {
+            widget.icon = Icon(
+              Ionicons.build_outline,
+              size: 50,
+              color: globals.trueWhite,
+            );
+          });
+        }
       });
     });
   }
