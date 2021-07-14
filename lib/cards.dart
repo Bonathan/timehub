@@ -4,6 +4,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:timehub/functions.dart';
 import 'package:timehub/globals.dart' as globals;
+import 'package:timehub/screens.dart' as screens;
 import 'package:ionicons/ionicons.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
@@ -73,13 +74,19 @@ class Forecast extends StatelessWidget {
           children: [
             Container(
               margin: EdgeInsets.only(top: 30),
-              child: Text(
-                "Forecast",
-                style: GoogleFonts.redHatDisplay(
-                    textStyle: TextStyle(
-                        color: globals.trueWhite,
-                        fontSize: 30,
-                        fontWeight: FontWeight.w800)),
+              child: GestureDetector(
+                child: Text(
+                  "Forecast",
+                  style: GoogleFonts.redHatDisplay(
+                      textStyle: TextStyle(
+                          color: globals.trueWhite,
+                          fontSize: 30,
+                          fontWeight: FontWeight.w800)),
+                ),
+                onLongPress: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (BuildContext context) => screens.ForecastSettings()));
+                },
               ),
             ),
             Container(
