@@ -4,7 +4,7 @@ Open Time Hub is an open-source alternative to the Google Nest Hub. This project
 |Feature			|Function			|Status				|
 -------------|--------------|------------|
 |Time				|Shows the time with realtime updates| stable|
-|Current weather|Shows the current weather with an icon| stable (development)|
+|Current weather|Shows the current weather with an icon| stable|
 |Forecast|Shows the weather in +3 / +6 / +9 / etc. hours | beta|
 |Music|Plays and controls music|planned|
 |Calendar|Google Calendar integration| planned|
