@@ -12,7 +12,7 @@ var forecastIcon;
 
 void getWeather() async {
   Weather weather =
-      await globals.weatherFactory.currentWeatherByCityName("La Tzoumaz");
+      await globals.weatherFactory.currentWeatherByCityName(globals.weatherLocation);
   globals.weather = weather;
   globals.currentWeather = weather.weatherDescription;
   globals.currentWeatherId = weather.weatherConditionCode;
@@ -20,8 +20,8 @@ void getWeather() async {
   globals.currentWeatherTempFeel = weather.tempFeelsLike;
   globals.weatherIcon = getWeatherIcon(weather.weatherIcon, Colors.black);
   globals.forecast =
-      await globals.weatherFactory.fiveDayForecastByCityName('La Tzoumaz');
-  print(globals.forecast[4].weatherIcon);
+      await globals.weatherFactory.fiveDayForecastByCityName(globals.weatherLocation);
+  print(weather);
 }
 
 getWeatherIcon(requestedIcon, reqColor) {
@@ -30,7 +30,7 @@ getWeatherIcon(requestedIcon, reqColor) {
     globals.currentWeatherId = Icon(Ionicons.sunny_outline);
   } else if (requestedIcon.toString() == '02d') {
     return Icon(
-      Ionicons.cloud_outline,
+      Ionicons.partly_sunny_outline,
       size: 50,
       color: reqColor,
     );

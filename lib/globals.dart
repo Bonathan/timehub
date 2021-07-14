@@ -20,6 +20,7 @@ var formattedTimeHour;
 var formattedTimeMonth;
 
 var weather;
+var weatherLocation = 'Mazan';
 var currentWeather;
 var currentWeatherId;
 var currentWeatherTemp;

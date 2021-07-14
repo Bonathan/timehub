@@ -4,7 +4,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:timehub/functions.dart';
 import 'package:timehub/globals.dart' as globals;
-import 'package:timehub/screens.dart' as screens;
+import 'package:timehub/screens.dart';
 import 'package:ionicons/ionicons.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
@@ -84,8 +84,11 @@ class Forecast extends StatelessWidget {
                           fontWeight: FontWeight.w800)),
                 ),
                 onLongPress: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (BuildContext context) => screens.ForecastSettings()));
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (BuildContext context) =>
+                              ForecastSettings()));
                 },
               ),
             ),
