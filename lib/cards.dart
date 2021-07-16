@@ -74,22 +74,13 @@ class Forecast extends StatelessWidget {
           children: [
             Container(
               margin: EdgeInsets.only(top: 30),
-              child: GestureDetector(
-                child: Text(
-                  "Forecast",
-                  style: GoogleFonts.redHatDisplay(
-                      textStyle: TextStyle(
-                          color: globals.trueWhite,
-                          fontSize: 30,
-                          fontWeight: FontWeight.w800)),
-                ),
-                onLongPress: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (BuildContext context) =>
-                              ForecastSettings()));
-                },
+              child: Text(
+                "Forecast",
+                style: GoogleFonts.redHatDisplay(
+                    textStyle: TextStyle(
+                        color: globals.trueWhite,
+                        fontSize: 30,
+                        fontWeight: FontWeight.w800)),
               ),
             ),
             Container(

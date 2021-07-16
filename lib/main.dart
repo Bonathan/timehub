@@ -28,7 +28,7 @@ void main() {
   getWeather();
   //Timer.periodic(Duration(seconds: 1), (Timer t) => getTime());
   Timer.periodic(Duration(seconds: 1), (Timer t) => setTime());
-  Timer.periodic(Duration(seconds: 1), (Timer t) => getWeather());
+  Timer.periodic(Duration(seconds: 5), (Timer t) => getWeather());
   //Timer.periodic(Duration(minutes: 5), (Timer t) => getForecast());
   Timer(new Duration(seconds: 5), () => print(globals.deviceSize));
   runApp(MyApp());

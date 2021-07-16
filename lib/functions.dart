@@ -21,7 +21,7 @@ void getWeather() async {
   globals.weatherIcon = getWeatherIcon(weather.weatherIcon, Colors.black);
   globals.forecast =
       await globals.weatherFactory.fiveDayForecastByCityName(globals.weatherLocation);
-  print(weather);
+  print(globals.weatherLocation);
 }
 
 getWeatherIcon(requestedIcon, reqColor) {
