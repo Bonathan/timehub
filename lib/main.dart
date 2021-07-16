@@ -25,8 +25,7 @@ void setTime() {
 void main() {
   setTime();
   //getForecast();
-  getWeather();
-  //Timer.periodic(Duration(seconds: 1), (Timer t) => getTime());
+  getWeather();  //Timer.periodic(Duration(seconds: 1), (Timer t) => getTime());
   Timer.periodic(Duration(seconds: 1), (Timer t) => setTime());
   Timer.periodic(Duration(seconds: 5), (Timer t) => getWeather());
   //Timer.periodic(Duration(minutes: 5), (Timer t) => getForecast());

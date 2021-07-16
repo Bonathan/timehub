@@ -8,6 +8,7 @@ import 'package:timehub/screens.dart';
 import 'package:ionicons/ionicons.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
+import 'package:webfeed/webfeed.dart';
 import 'dart:async';
 import 'package:material_clock/material_clock.dart' as materialClock;
 
@@ -202,3 +203,9 @@ class _ForecastElementState extends State<ForecastElement> {
         ));
   }
 }
+
+
+//
+// RSS reader widget
+//
+

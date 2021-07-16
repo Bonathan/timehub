@@ -11,16 +11,16 @@ final DateFormat formatterTime = DateFormat('HH:mm');
 var forecastIcon;
 
 void getWeather() async {
-  Weather weather =
-      await globals.weatherFactory.currentWeatherByCityName(globals.weatherLocation);
+  Weather weather = await globals.weatherFactory
+      .currentWeatherByCityName(globals.weatherLocation);
   globals.weather = weather;
   globals.currentWeather = weather.weatherDescription;
   globals.currentWeatherId = weather.weatherConditionCode;
   globals.currentWeatherTemp = weather.temperature;
   globals.currentWeatherTempFeel = weather.tempFeelsLike;
   globals.weatherIcon = getWeatherIcon(weather.weatherIcon, Colors.black);
-  globals.forecast =
-      await globals.weatherFactory.fiveDayForecastByCityName(globals.weatherLocation);
+  globals.forecast = await globals.weatherFactory
+      .fiveDayForecastByCityName(globals.weatherLocation);
   print(globals.weatherLocation);
 }
 
@@ -134,36 +134,3 @@ getWeatherIcon(requestedIcon, reqColor) {
     return Icon(Ionicons.eye_off);
   }
 }
-/*
-setForecastIcon(requestedIcon, iconLocation) {
-  var icon;
-  icon = getWeatherIcon(requestedIcon);
-  iconLocation = icon;
-  print(icon);
-  print(globals.forecastIcon[1].toString());
-  print(iconLocation);
-  Timer.periodic(Duration(minutes: 5), (Timer t) {
-    icon = getWeatherIcon(requestedIcon);
-    iconLocation = icon;
-    print("here");
-    return iconLocation;
-  });
-}
-
-getForecast() async {
-  List<Weather> forecast =
-      await globals.weatherFactory.fiveDayForecastByCityName('La Tzoumaz');
-  globals.forecast = forecast;
-  print("I'm here");
-  forecastIcon[0] = getWeatherIcon(forecast[0].weatherIcon);
-  forecastIcon[1] = getWeatherIcon(forecast[1].weatherIcon);
-  forecastIcon[2] = getWeatherIcon(forecast[2].weatherIcon);
-  forecastIcon[3] = getWeatherIcon(forecast[3].weatherIcon);
-  forecastIcon[4] = getWeatherIcon(forecast[4].weatherIcon);
-}
-
-getTime() {
-  globals.time = DateTime.now();
-}*/
-
-//><
