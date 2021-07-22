@@ -33,6 +33,8 @@ dependencies:
   google_fonts: ^2.1.0
   intl: ^0.17.0
   weather: ^2.0.1
+  webfeed: ^0.7.0
+  http: ^0.13.3
   ionicons: ^0.1.2
 
 dev_dependencies:

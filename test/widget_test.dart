@@ -6,6 +6,8 @@
 // tree, read text, and verify that the values of widget properties are correct.
 
 import 'package:flutter/material.dart';
+import 'package:webfeed/webfeed.dart';
+import 'package:http/http.dart' as http;
 import 'package:flutter_test/flutter_test.dart';
 
 import 'package:timehub/main.dart';
