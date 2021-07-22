@@ -4,7 +4,10 @@ import 'package:intl/intl.dart';
 import 'package:ionicons/ionicons.dart';
 import 'package:timehub/globals.dart' as globals;
 import 'package:weather/weather.dart';
+import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
+import 'package:webfeed/domain/atom_feed.dart';
+import 'package:webfeed/domain/rss_feed.dart';
 
 final DateFormat formatter = DateFormat('d MMMM');
 final DateFormat formatterTime = DateFormat('HH:mm');
@@ -133,4 +136,15 @@ getWeatherIcon(requestedIcon, reqColor) {
   } else {
     return Icon(Ionicons.eye_off);
   }
+}
+
+class Feed1 {
+  final _targetUrl = Uri.parse('https://www.becompany.ch/en/blog/feed.xml');
+}
+
+final targetUrl = Uri.parse('https://www.becompany.ch/en/blog/feed.xml');
+
+void getFeedRss() async {
+  /*final AtomFeed feed = await Feed1().getFeed();*/
+  print(await http.read(targetUrl));
 }

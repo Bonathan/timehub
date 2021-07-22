@@ -1,6 +1,7 @@
 // @dart=2.10
 import 'dart:async';
 import 'dart:io';
+import 'package:http/http.dart' as http;
 import 'package:timehub/cards.dart' as cards;
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -22,15 +23,17 @@ void setTime() {
   hour = formatterTime.format(time);
 }
 
-void main() {
+void main() async {
+  /*
   setTime();
   //getForecast();
   getWeather();  //Timer.periodic(Duration(seconds: 1), (Timer t) => getTime());
-  Timer.periodic(Duration(seconds: 1), (Timer t) => setTime());
+ Uri Timer.periodic(Duration(seconds: 1), (Timer t) => setTime());
   Timer.periodic(Duration(seconds: 5), (Timer t) => getWeather());
   //Timer.periodic(Duration(minutes: 5), (Timer t) => getForecast());
   Timer(new Duration(seconds: 5), () => print(globals.deviceSize));
-  runApp(MyApp());
+  runApp(MyApp());*/
+  getFeedRss();
 }
 
 class MyApp extends StatefulWidget {
