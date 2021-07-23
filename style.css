@@ -1,0 +1,80 @@
+:root{
+    --RedHatDisplay: 'Red Hat Display', sans-serif;
+    --RedHatText: 'Red Hat Text', sans-serif;
+    --w100: 100;
+    --w800: 800;
+    --s1: 1rem;
+    --s2: 1.5rem;
+    --s3: 3rem;
+    --black: black;
+}
+
+p h1 h2 h3 h4 a{
+    color: var(--black);
+}
+
+html{
+    font-size: 100%;
+}
+
+body{
+    margin: 0;
+}
+
+.RedHatDisplay{
+    font-family: var(--RedHatDisplay);
+}
+
+.RedHatText{
+    font-family: var(--RedHatText);
+}
+
+.Regular{
+    font-weight: var(--w100);
+    font-size: var(--s1);
+}
+
+.Medium{
+    font-weight: var(--w200);
+    font-size: var(--s2);
+}
+
+.NavTitle{
+    font-size: var(--s2);
+}
+
+.Bold{
+    font-weight: var(--w800);
+}
+
+.BigText{
+    font-size: var(--s3);
+}
+
+.icon{
+    color: var(--black);
+}
+
+.centered{
+    width: 30rem;
+    margin: 0.5rem;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+header{
+    display: flex;
+    justify-content: center;
+    box-shadow: 0rem 0rem 0.1rem grey;
+}
+
+#splash-screen{
+}
+
+#splash-screen-floating-left{
+    position: absolute;
+    left: 3rem;
+}
