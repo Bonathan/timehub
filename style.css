@@ -51,7 +51,7 @@ body{
     font-size: var(--s3);
 }
 
-.icon{
+ion-icon{
     color: var(--black);
 }
 
@@ -71,10 +71,16 @@ header{
     box-shadow: 0rem 0rem 0.1rem grey;
 }
 
-#splash-screen{
-}
-
 #splash-screen-floating-left{
     position: absolute;
     left: 3rem;
+}
+
+.iconTextNav{
+    font-size: var(--s2);
+    width: 10rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
 }
