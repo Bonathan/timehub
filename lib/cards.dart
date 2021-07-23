@@ -79,7 +79,7 @@ class Forecast extends StatelessWidget {
                 "Forecast",
                 style: GoogleFonts.redHatDisplay(
                     textStyle: TextStyle(
-                        color: globals.trueWhite,
+                        color: globals.trueBlack,
                         fontSize: 30,
                         fontWeight: FontWeight.w800)),
               ),
@@ -152,21 +152,21 @@ class _ForecastElementState extends State<ForecastElement> {
     Timer(new Duration(seconds: 5), () {
       setState(() {
         widget.icon = getWeatherIcon(
-            globals.forecast[widget.forecastNumber].weatherIcon, Colors.white);
+            globals.forecast[widget.forecastNumber].weatherIcon, Colors.black);
         widget.time = DateTime.now();
       });
     });
     Timer.periodic(new Duration(seconds: 5), (timer) {
       setState(() {
         widget.icon = getWeatherIcon(
-            globals.forecast[widget.forecastNumber].weatherIcon, Colors.white);
+            globals.forecast[widget.forecastNumber].weatherIcon, Colors.black);
         widget.time = DateTime.now();
         if (widget.icon == null) {
           setState(() {
             widget.icon = Icon(
               Ionicons.build_outline,
               size: 50,
-              color: globals.trueWhite,
+              color: globals.trueBlack,
             );
           });
         }
@@ -193,10 +193,10 @@ class _ForecastElementState extends State<ForecastElement> {
                       textStyle: TextStyle(
                           fontWeight: FontWeight.w900,
                           fontSize: 20,
-                          color: globals.trueWhite))),
+                          color: globals.trueBlack))),
               Text(
                 "+${widget.addedTime} hours",
-                style: TextStyle(color: globals.trueWhite),
+                style: TextStyle(color: globals.trueBlack),
               ),
             ],
           ),

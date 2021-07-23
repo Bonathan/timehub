@@ -76,6 +76,13 @@ header{
     left: 3rem;
 }
 
+#splash-screen-floating-right-img{
+    height: 30rem;
+    z-index: -1;
+    margin: 5rem;
+    position: fixed;
+}
+
 .iconTextNav{
     font-size: var(--s2);
     width: 10rem;
@@ -83,4 +90,12 @@ header{
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
+}
+
+.circle{
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    background-color: red;
+    margin: 5px;
 }
