@@ -75,13 +75,13 @@ header{
     position: absolute;
     left: 3rem;
 }
-
+/*
 #splash-screen-floating-right-img{
     height: 30rem;
     z-index: -1;
     margin: 5rem;
-    position: fixed;
-}
+    margin-top: 100rem;
+}*/
 
 .iconTextNav{
     font-size: var(--s2);
@@ -92,10 +92,7 @@ header{
     justify-content: space-between;
 }
 
-.circle{
-    height: 50px;
-    width: 50px;
-    border-radius: 50%;
-    background-color: red;
-    margin: 5px;
-}
+.wow:first-child {
+      visibility: hidden;
+      z-index: -1;
+    }
