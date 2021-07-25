@@ -103,19 +103,16 @@ header{
 }
 
 #a, .splash-screen-floating-right-img{
-  position: absolute;
   right: 20rem;
   z-index: -2;
 }
 
 .splash-screen-floating-right-img, #b{
   right: 35rem;
-  position: absolute;
   z-index: -3;
 }
 
 .splash-screen-floating-right-img, #c{
   right: 5rem;
-  position: absolute;
   z-index: -1;
 }
