@@ -97,7 +97,9 @@ header{
 }
 
 .splash-screen-floating-right{
-    margin-top: 5rem;
+    position: absolute;
+    top: 6rem;
+    right: 5rem;
 }
 
 #a, .splash-screen-floating-right-img{
