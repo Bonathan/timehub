@@ -5,7 +5,8 @@
     --w800: 800;
     --s1: 1rem;
     --s2: 1.5rem;
-    --s3: 3rem;
+    --s3: 2.5rem;
+    --s4: 3rem;
     --black: black;
     --casualGrey:#F5F5F5;
 }
@@ -21,7 +22,7 @@ html{
 body{
     background-color: var(--casualGrey);
     margin: 0;
-    overflow: hidden;
+    overflow-x: hidden;
 }
 
 .RedHatDisplay{
@@ -51,7 +52,7 @@ body{
 }
 
 .BigText{
-    font-size: var(--s3);
+    font-size: var(--s4);
 }
 
 ion-icon{
@@ -59,7 +60,7 @@ ion-icon{
 }
 
 .centered{
-    width: 30rem;
+    width: 40rem;
     margin: 0.5rem;
     display: flex;
     flex-direction: row;
@@ -76,7 +77,8 @@ header{
 
 #splash-screen-floating-left{
     position: absolute;
-    left: 3rem;
+    left: 5rem;
+    top: 5rem;
 }
 
 .iconTextNav{
@@ -91,6 +93,10 @@ header{
 .wow:first-child {
     visibility: hidden;
     z-index: -1;
+}
+
+.splash-screen-floating-right{
+    margin-top: 5rem;
 }
 
 #a, .splash-screen-floating-right{
