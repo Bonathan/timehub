@@ -98,21 +98,23 @@ header{
 
 .splash-screen-floating-right{
     position: absolute;
-    top: 6rem;
     right: 5rem;
 }
 
 #a, .splash-screen-floating-right-img{
-  right: 20rem;
+    top: 6rem;
+    right: 20rem;
   z-index: -2;
 }
 
 .splash-screen-floating-right-img, #b{
   right: 35rem;
-  z-index: -3;
+    top: 6rem;
+    z-index: -3;
 }
 
 .splash-screen-floating-right-img, #c{
-  right: 5rem;
+    top: 6rem;
+    right: 5rem;
   z-index: -1;
 }
