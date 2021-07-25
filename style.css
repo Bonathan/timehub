@@ -73,6 +73,7 @@ header{
     display: flex;
     justify-content: center;
     box-shadow: 0rem 0rem 0.1rem grey;
+    margin-bottom: 5rem;
 }
 
 #splash-screen-floating-left{
