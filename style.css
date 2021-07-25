@@ -7,6 +7,7 @@
     --s2: 1.5rem;
     --s3: 3rem;
     --black: black;
+    --casualGrey:#F5F5F5;
 }
 
 p h1 h2 h3 h4 a{
@@ -18,7 +19,9 @@ html{
 }
 
 body{
+    background-color: var(--casualGrey);
     margin: 0;
+    overflow: hidden;
 }
 
 .RedHatDisplay{
@@ -75,13 +78,6 @@ header{
     position: absolute;
     left: 3rem;
 }
-/*
-#splash-screen-floating-right-img{
-    height: 30rem;
-    z-index: -1;
-    margin: 5rem;
-    margin-top: 100rem;
-}*/
 
 .iconTextNav{
     font-size: var(--s2);
@@ -93,6 +89,24 @@ header{
 }
 
 .wow:first-child {
-      visibility: hidden;
-      z-index: -1;
-    }
+    visibility: hidden;
+    z-index: -1;
+}
+
+#a, .splash-screen-floating-right{
+  position: absolute;
+  right: 20rem;
+  z-index: -2;
+}
+
+.splash-screen-floating-right, #b{
+  right: 35rem;
+  position: absolute;
+  z-index: -3;
+}
+
+.splash-screen-floating-right, #c{
+  right: 5rem;
+  position: absolute;
+  z-index: -1;
+}
