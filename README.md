@@ -1,5 +1,6 @@
 # About
 [![Open Source? Yes!](https://badgen.net/badge/Open%20Source%20%3F/Yes%21/blue?icon=github)](https://opensource.org/)
+[![Generic badge](https://img.shields.io/badge/made%20with-flutter-blue.svg)](https://flutter.dev/)
 [![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://GitHub.com/Jouhney/timehub/graphs/commit-activity)
 [![Website shields.io](https://img.shields.io/website-up-down-green-red/http/shields.io.svg)](https://jouhney.github.io/timehub/)
 
