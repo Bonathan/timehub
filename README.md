@@ -2,6 +2,7 @@
 [![Open Source? Yes!](https://badgen.net/badge/Open%20Source%20%3F/Yes%21/blue?icon=github)](https://opensource.org/)
 [![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://GitHub.com/Jouhney/timehub/graphs/commit-activity)
 [![Website shields.io](https://img.shields.io/website-up-down-green-red/http/shields.io.svg)](https://jouhney.github.io/timehub/)
+
 Open Time Hub is an open-source alternative to the Google Nest Hub. This project is still in its early stages and doesn't have as many features as Google's Nest Hub, but is under constant development and its feature set expands every day.
 ## Features
 |Feature			|Function			|Status				|
