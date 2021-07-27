@@ -55,7 +55,7 @@ class _MyAppState extends State<MyApp> {
       home: Scaffold(
         backgroundColor: globals.backGr,
         body: Container(
-          margin: EdgeInsets.fromLTRB(200, 100, 200, 100),
+          margin: EdgeInsets.fromLTRB(100, 50, 100, 50),
           child: CardManager(),
         ),
       ),
@@ -106,28 +106,40 @@ class _TimeState extends State<Time> {
   Widget build(BuildContext context) {
     return Container(
         child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
           Container(
-            child: Column(children: [
+            margin: EdgeInsets.only(top: 25),
+            child:
+                Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
               Text(formatterTime.format(time),
                   style: GoogleFonts.redHatDisplay(
                       textStyle: TextStyle(
-                          fontWeight: FontWeight.w500, fontSize: /*125*/ 125))),
-              Text(
-                formatter.format(time),
-                style: GoogleFonts.redHatDisplay(
-                    textStyle:
-                        TextStyle(fontWeight: FontWeight.w300, fontSize: 25)),
-              ),
+                          fontWeight: FontWeight.w500, fontSize: /*125*/ 50))),
+              Container(
+                margin: EdgeInsets.only(left: 4),
+                child: Text(
+                  formatter.format(time),
+                  style: GoogleFonts.redHatDisplay(
+                      textStyle:
+                          TextStyle(fontWeight: FontWeight.w300, fontSize: 20)),
+                ),
+              )
             ]),
           ),
           Container(
               child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Container(
+                margin: EdgeInsets.fromLTRB(2, 25, 0, 5),
+                child: globals.weatherIcon,
+              ),
+              Container(
+                margin: EdgeInsets.only(bottom: 30),
                 child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
                       globals.currentWeatherTempFeel.toString(),
@@ -144,10 +156,6 @@ class _TimeState extends State<Time> {
                   ],
                 ),
               ),
-              Container(
-                margin: EdgeInsets.only(top: 25),
-                child: globals.weatherIcon,
-              )
             ],
           ))
         ]));
