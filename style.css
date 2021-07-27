@@ -45,6 +45,10 @@ h2{
     font-size: var(--s3);
 }
 
+.overflow-y{
+    overflow-y: hidden;
+}
+
 .RedHatDisplay{
     font-family: var(--RedHatDisplay);
 }
@@ -151,7 +155,6 @@ header{
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
-    overflow-y: hidden;
 }
 
 #timehub_device_showcase1{
