@@ -1,6 +1,7 @@
 // @dart=2.10
 import 'package:flutter/material.dart';
 import 'package:weather/weather.dart';
+import 'package:webfeed/domain/rss_feed.dart';
 import 'package:ionicons/ionicons.dart';
 import 'package:timehub/private_keys.dart' as privatekey;
 
@@ -20,7 +21,7 @@ var formattedTimeHour;
 var formattedTimeMonth;
 
 var weather;
-var weatherLocation = 'Mazan';
+var weatherLocation = 'Basel';
 var currentWeather;
 var currentWeatherId;
 var currentWeatherTemp;
@@ -33,14 +34,17 @@ var forecastIcon = List.filled(
     Icon(
       Ionicons.build_outline,
       size: 50,
-      color: trueWhite,
+      color: trueBlack,
     ),
     growable: true);
 
-final cardBack = Colors.grey[300];
+final backGr = Color(0xf5f5f5);
+final cardBack = Colors.white;
 final desaturatedRed = Colors.red[600];
 final darkGrey = Colors.grey[900];
 final trueBlack = Colors.black;
 final trueWhite = Colors.white;
 
 final timeDateSmall = 0;
+
+RssFeed feed;

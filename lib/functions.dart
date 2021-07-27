@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
 import 'package:ionicons/ionicons.dart';
 import 'package:timehub/globals.dart' as globals;
@@ -8,6 +9,7 @@ import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
 import 'package:webfeed/domain/atom_feed.dart';
 import 'package:webfeed/domain/rss_feed.dart';
+import 'package:flutter/material.dart';
 
 final DateFormat formatter = DateFormat('d MMMM');
 final DateFormat formatterTime = DateFormat('HH:mm');
@@ -139,12 +141,32 @@ getWeatherIcon(requestedIcon, reqColor) {
 }
 
 class Feed1 {
-  final _targetUrl = Uri.parse('https://www.becompany.ch/en/blog/feed.xml');
+  final _targetUrl = Uri.parse('https://www.srf.ch/news/bnf/rss/1890');
+
+  Future<RssFeed> getFeed() =>
+      http.read(_targetUrl).then((xmlString) => RssFeed.parse(xmlString));
 }
 
 final targetUrl = Uri.parse('https://www.becompany.ch/en/blog/feed.xml');
 
 void getFeedRss() async {
-  /*final AtomFeed feed = await Feed1().getFeed();*/
-  print(await http.read(targetUrl));
+  final RssFeed feed = await Feed1().getFeed();
+  globals.feed = feed;
+}
+
+class Feed extends StatelessWidget {
+  const Feed({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    getFeedRss();
+    return ListView.builder(
+        itemCount: 10,
+        itemBuilder: (BuildContext ctxt, int index) {
+          final item = globals.feed.items![index];
+          return ListTile(
+            title: Text(item.title.toString(), style: GoogleFonts.redHatText()),
+          );
+        });
+  }
 }

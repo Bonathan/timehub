@@ -85,9 +85,21 @@ class Forecast extends StatelessWidget {
               ),
             ),
             Container(
-              margin: EdgeInsets.only(bottom: 30),
-              child: ForecastWrapper(),
-            ),
+                margin: EdgeInsets.only(bottom: 30),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    ForecastWrapper(),
+                    Container(
+                      margin: EdgeInsets.only(top: 25),
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(5),
+                          color: globals.darkGrey),
+                      height: 5,
+                      width: 150,
+                    )
+                  ],
+                )),
           ],
         ));
   }
@@ -149,7 +161,7 @@ class ForecastElement extends StatefulWidget {
 
 class _ForecastElementState extends State<ForecastElement> {
   void initState() {
-    Timer(new Duration(seconds: 5), () {
+    Timer(new Duration(seconds: 1), () {
       setState(() {
         widget.icon = getWeatherIcon(
             globals.forecast[widget.forecastNumber].weatherIcon, Colors.black);
@@ -204,8 +216,47 @@ class _ForecastElementState extends State<ForecastElement> {
   }
 }
 
-
 //
 // RSS reader widget
 //
 
+class RssReader extends StatelessWidget {
+  const RssReader({Key key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    getFeedRss();
+    return Container(
+      margin: EdgeInsets.all(25),
+      decoration: BoxDecoration(
+        borderRadius: globals.borderRadius,
+        color: globals.cardBack,
+        boxShadow: globals.boxShadow,
+      ),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: [
+          Container(
+            margin: EdgeInsets.only(top: 25),
+            child: Text("News",
+                style: GoogleFonts.redHatDisplay(
+                    textStyle: TextStyle(
+                        fontWeight: FontWeight.w800,
+                        fontSize: 30,
+                        color: globals.trueBlack))),
+            height: 75,
+          ),
+          Container(height: 300, child: Feed()),
+          Container(
+            margin: EdgeInsets.only(top: 25, bottom: 30),
+            decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(5),
+                color: globals.darkGrey),
+            height: 5,
+            width: 150,
+          )
+        ],
+      ),
+    );
+  }
+}

@@ -1,6 +1,7 @@
 // @dart=2.10
 import 'dart:async';
 import 'dart:io';
+import 'package:flutter/services.dart';
 import 'package:http/http.dart' as http;
 import 'package:timehub/cards.dart' as cards;
 import 'package:flutter/material.dart';
@@ -24,6 +25,11 @@ void setTime() {
 }
 
 void main() async {
+  SystemChrome.setPreferredOrientations([
+    DeviceOrientation.landscapeLeft,
+    DeviceOrientation.landscapeRight,
+  ]);
+  await getFeedRss();
   setTime();
   //getForecast();
   getWeather(); //Timer.periodic(Duration(seconds: 1), (Timer t) => getTime());
@@ -32,7 +38,6 @@ void main() async {
   //Timer.periodic(Duration(minutes: 5), (Timer t) => getForecast());
   Timer(new Duration(seconds: 5), () => print(globals.deviceSize));
   runApp(MyApp());
-  //getFeedRss();
 }
 
 class MyApp extends StatefulWidget {
@@ -48,6 +53,7 @@ class _MyAppState extends State<MyApp> {
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
       home: Scaffold(
+        backgroundColor: globals.backGr,
         body: Container(
           margin: EdgeInsets.fromLTRB(200, 100, 200, 100),
           child: CardManager(),
@@ -73,7 +79,7 @@ class _CardManagerState extends State<CardManager> {
         width: 500,
         child: PageView(
           controller: pageController,
-          children: [/*cards.Time(),*/ cards.Forecast()],
+          children: [cards.Forecast(), cards.RssReader()],
         ),
       ),
     ]);
