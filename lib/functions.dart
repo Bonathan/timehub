@@ -161,11 +161,15 @@ class Feed extends StatelessWidget {
   Widget build(BuildContext context) {
     getFeedRss();
     return ListView.builder(
-        itemCount: 10,
+        itemCount: 15,
         itemBuilder: (BuildContext ctxt, int index) {
           final item = globals.feed.items![index];
           return ListTile(
-            title: Text(item.title.toString(), style: GoogleFonts.redHatText()),
+            contentPadding: EdgeInsets.fromLTRB(35, 2, 45, 2),
+            title: Text(item.title.toString(),
+                style: GoogleFonts.redHatText(
+                    textStyle:
+                        TextStyle(fontWeight: FontWeight.w500, fontSize: 18))),
           );
         });
   }

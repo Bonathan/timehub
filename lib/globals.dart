@@ -38,7 +38,9 @@ var forecastIcon = List.filled(
     ),
     growable: true);
 
-final backGr = Color(0xf5f5f5);
+//f5f5f5
+
+final backGr = Colors.grey[100];
 final cardBack = Colors.white;
 final desaturatedRed = Colors.red[600];
 final darkGrey = Colors.grey[900];

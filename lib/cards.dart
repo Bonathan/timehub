@@ -62,46 +62,14 @@ class Forecast extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-        margin: EdgeInsets.all(25),
-        decoration: BoxDecoration(
-          borderRadius: globals.borderRadius,
-          color: globals.cardBack,
-          boxShadow: globals.boxShadow,
+    return UniCard(
+        content: Container(
+          margin: EdgeInsets.only(
+            top: 175,
+          ),
+          child: ForecastWrapper(),
         ),
-        width: globals.cardWidth,
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Container(
-              margin: EdgeInsets.only(top: 30),
-              child: Text(
-                "Forecast",
-                style: GoogleFonts.redHatDisplay(
-                    textStyle: TextStyle(
-                        color: globals.trueBlack,
-                        fontSize: 30,
-                        fontWeight: FontWeight.w800)),
-              ),
-            ),
-            Container(
-                margin: EdgeInsets.only(bottom: 30),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    ForecastWrapper(),
-                    Container(
-                      margin: EdgeInsets.only(top: 25),
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(5),
-                          color: globals.darkGrey),
-                      height: 5,
-                      width: 150,
-                    )
-                  ],
-                )),
-          ],
-        ));
+        title: "Forecast");
   }
 }
 
@@ -226,6 +194,28 @@ class RssReader extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     getFeedRss();
+    return UniCard(content: Feed(), title: "News");
+  }
+}
+
+////////////////////////////////////////
+//                                    //
+// Unicard                            //
+//                                    //
+////////////////////////////////////////
+
+class UniCard extends StatelessWidget {
+  const UniCard({
+    Key key,
+    @required this.content,
+    @required this.title,
+  }) : super(key: key);
+
+  final content;
+  final String title;
+
+  @override
+  Widget build(BuildContext context) {
     return Container(
       margin: EdgeInsets.all(25),
       decoration: BoxDecoration(
@@ -234,11 +224,11 @@ class RssReader extends StatelessWidget {
         boxShadow: globals.boxShadow,
       ),
       child: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Container(
             margin: EdgeInsets.only(top: 25),
-            child: Text("News",
+            child: Text(this.title,
                 style: GoogleFonts.redHatDisplay(
                     textStyle: TextStyle(
                         fontWeight: FontWeight.w800,
@@ -246,7 +236,11 @@ class RssReader extends StatelessWidget {
                         color: globals.trueBlack))),
             height: 75,
           ),
-          Container(height: 300, child: Feed()),
+          Container(
+            height: 375,
+            child: this.content,
+            margin: EdgeInsets.only(right: 5, bottom: 35),
+          ),
           Container(
             margin: EdgeInsets.only(top: 25, bottom: 30),
             decoration: BoxDecoration(

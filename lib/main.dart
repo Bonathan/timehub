@@ -50,6 +50,7 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      color: globals.backGr,
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
       home: Scaffold(
