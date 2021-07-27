@@ -2,12 +2,14 @@
     --RedHatDisplay: 'Red Hat Display', sans-serif;
     --RedHatText: 'Red Hat Text', sans-serif;
     --w100: 100;
+    --w500: 500;
     --w800: 800;
     --s1: 1rem;
     --s2: 1.5rem;
     --s3: 2.5rem;
     --s4: 3rem;
-    --black: black;
+    --black: rgb(36, 36, 36);
+    --darkGrey: #2a2a2a;
     --casualGrey:#F5F5F5;
 }
 
@@ -23,6 +25,24 @@ body{
     background-color: var(--casualGrey);
     margin: 0;
     overflow-x: hidden;
+}
+
+p{
+    font-family: var(--RedHatText);
+    font-size: var(--s1);
+    font-weight: var(--w100);
+}
+
+h1{
+    font-family: var(--RedHatDisplay);
+    font-weight: var(--w800);
+    font-size: var(--s4);
+}
+
+h2{
+    font-family: var(--RedHatDisplay);
+    font-weight: var(--w500);
+    font-size: var(--s3);
 }
 
 .RedHatDisplay{
@@ -69,6 +89,20 @@ ion-icon{
     align-items: center;
 }
 
+.left{
+    margin-left: 5rem;
+}
+
+.flex-row{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.margin-top{
+    margin-top: 6rem;
+}
+
 header{
     display: flex;
     justify-content: center;
@@ -93,22 +127,34 @@ header{
 
 .wow:first-child {
     visibility: hidden;
-    z-index: -1;
 }
 #a, .splash-screen-floating-right-img{
     position: absolute;
     right: 20rem;
-    z-index: -2;
 }
 
 #b, .splash-screen-floating-right-img{
     position: absolute;
     right: 35rem;
-    z-index: -3;
 }
 
 #c, .splash-screen-floating-right-img{
     position: absolute;
     right: 5em;
-    z-index: -1;
+}
+
+#device{
+    color: white;
+    padding-top: 5rem;
+    background-color: var(--darkGrey);
+    margin-top: 60rem;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+}
+
+#timehub_device_showcase1{
+    margin-top: 5rem;
+    margin-left: 5rem;
+    width: 45rem;
 }
