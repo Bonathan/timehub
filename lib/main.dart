@@ -50,13 +50,16 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      color: globals.backGr,
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
       home: Scaffold(
         backgroundColor: globals.backGr,
         body: Container(
-          margin: EdgeInsets.fromLTRB(100, 50, 100, 50),
+          decoration: BoxDecoration(
+              image: DecorationImage(
+                  image: AssetImage('assets/coastal-11.jpg'),
+                  fit: BoxFit.cover)),
+          padding: EdgeInsets.fromLTRB(100, 50, 100, 50),
           child: CardManager(),
         ),
       ),
