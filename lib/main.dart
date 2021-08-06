@@ -8,6 +8,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:timehub/functions.dart';
 import 'package:timehub/globals.dart' as globals;
+import 'package:timehub/globals/styles.dart' as styles;
 import 'package:intl/intl.dart';
 
 var formattedTime;
@@ -55,11 +56,7 @@ class _MyAppState extends State<MyApp> {
       home: Scaffold(
         backgroundColor: globals.backGr,
         body: Container(
-          decoration: BoxDecoration(
-              image: DecorationImage(
-                  image: AssetImage('assets/coastal-11.jpg'),
-                  fit: BoxFit.cover)),
-          padding: EdgeInsets.fromLTRB(100, 50, 100, 50),
+          padding: EdgeInsets.fromLTRB(50, 25, 50, 25),
           child: CardManager(),
         ),
       ),
@@ -111,52 +108,28 @@ class _TimeState extends State<Time> {
     return Container(
         child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            mainAxisAlignment: MainAxisAlignment.start,
             children: [
           Container(
-            margin: EdgeInsets.only(top: 25),
-            child:
-                Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-              Text(formatterTime.format(time),
-                  style: GoogleFonts.redHatDisplay(
-                      textStyle: TextStyle(
-                          fontWeight: FontWeight.w500, fontSize: /*125*/ 50))),
-              Container(
-                margin: EdgeInsets.only(left: 4),
-                child: Text(
-                  formatter.format(time),
-                  style: GoogleFonts.redHatDisplay(
-                      textStyle:
-                          TextStyle(fontWeight: FontWeight.w300, fontSize: 20)),
-                ),
-              )
-            ]),
-          ),
+              margin: EdgeInsets.only(top: 25),
+              child: Text(
+                formatterTime.format(time) + ' | ' + formatter.format(time),
+                style: styles.text,
+              )),
           Container(
               child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Container(
-                margin: EdgeInsets.fromLTRB(2, 25, 0, 5),
-                child: globals.weatherIcon,
-              ),
               Container(
                 margin: EdgeInsets.only(bottom: 30),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      globals.currentWeatherTempFeel.toString(),
-                      style: GoogleFonts.redHatDisplay(
-                          textStyle: TextStyle(
-                              fontWeight: FontWeight.w800, fontSize: 30)),
-                    ),
-                    Text(
-                      globals.currentWeatherTemp.toString(),
-                      style: GoogleFonts.redHatDisplay(
-                          textStyle: TextStyle(
-                              fontWeight: FontWeight.w500, fontSize: 15)),
-                    )
+                        globals.currentWeatherTemp.celsius.round().toString() +
+                            '°',
+                        style: styles.head),
+                    Text(globals.currentWeather.toString(), style: styles.text)
                   ],
                 ),
               ),

@@ -1,4 +1,5 @@
 // @dart=2.10
+import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter/material.dart';
 import 'package:weather/weather.dart';
 import 'package:webfeed/domain/rss_feed.dart';
@@ -12,7 +13,7 @@ final boxShadow = [
   BoxShadow(color: Colors.grey.withOpacity(0.5), blurRadius: 20)
 ];
 
-final borderRadius = BorderRadius.circular(25);
+final borderRadius = BorderRadius.circular(10);
 WeatherFactory weatherFactory =
     new WeatherFactory(privatekey.OpenWeatherAPIKey);
 
@@ -50,3 +51,4 @@ final trueWhite = Colors.white;
 final timeDateSmall = 0;
 
 RssFeed feed;
+
