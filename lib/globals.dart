@@ -5,6 +5,7 @@ import 'package:weather/weather.dart';
 import 'package:webfeed/domain/rss_feed.dart';
 import 'package:ionicons/ionicons.dart';
 import 'package:timehub/private_keys.dart' as privatekey;
+import 'package:timehub/globals/styles.dart' as styles;
 
 double cardWidth = 400;
 var deviceSize;
@@ -35,20 +36,10 @@ var forecastIcon = List.filled(
     Icon(
       Ionicons.build_outline,
       size: 50,
-      color: trueBlack,
+      color: styles.trueBlack,
     ),
     growable: true);
-
-//f5f5f5
-
-final backGr = Colors.grey[100];
-final cardBack = Colors.white;
-final desaturatedRed = Colors.red[600];
-final darkGrey = Colors.grey[900];
-final trueBlack = Colors.black;
-final trueWhite = Colors.white;
 
 final timeDateSmall = 0;
 
 RssFeed feed;
-

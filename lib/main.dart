@@ -1,11 +1,10 @@
 // @dart=2.10
 import 'dart:async';
-import 'dart:io';
 import 'package:flutter/services.dart';
-import 'package:http/http.dart' as http;
 import 'package:timehub/cards.dart' as cards;
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
+import 'package:timehub/cards/forecast.dart' as forecard;
+import 'package:timehub/cards/news.dart' as newscard;
 import 'package:timehub/functions.dart';
 import 'package:timehub/globals.dart' as globals;
 import 'package:timehub/globals/styles.dart' as styles;
@@ -54,7 +53,7 @@ class _MyAppState extends State<MyApp> {
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
       home: Scaffold(
-        backgroundColor: globals.backGr,
+        backgroundColor: styles.trueWhite,
         body: Container(
           padding: EdgeInsets.fromLTRB(50, 25, 50, 25),
           child: CardManager(),
@@ -80,7 +79,7 @@ class _CardManagerState extends State<CardManager> {
         width: 500,
         child: PageView(
           controller: pageController,
-          children: [cards.Forecast(), cards.RssReader()],
+          children: [/*forecard.Forecast(), */ newscard.RssReader()],
         ),
       ),
     ]);
