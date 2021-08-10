@@ -1,7 +1,7 @@
 // @dart=2.10
 import 'dart:async';
 import 'package:flutter/services.dart';
-import 'package:timehub/cards.dart' as cards;
+import 'package:timehub/cards/cards.dart' as cards;
 import 'package:flutter/material.dart';
 import 'package:timehub/cards/forecast.dart' as forecard;
 import 'package:timehub/cards/news.dart' as newscard;
@@ -25,14 +25,10 @@ void setTime() {
 }
 
 void main() async {
-  SystemChrome.setPreferredOrientations([
-    DeviceOrientation.landscapeLeft,
-    DeviceOrientation.landscapeRight,
-  ]);
   await getFeedRss();
   setTime();
   //getForecast();
-  getWeather(); //Timer.periodic(Duration(seconds: 1), (Timer t) => getTime());
+  await getWeather(); //Timer.periodic(Duration(seconds: 1), (Timer t) => getTime());
   Timer.periodic(Duration(seconds: 1), (Timer t) => setTime());
   Timer.periodic(Duration(seconds: 5), (Timer t) => getWeather());
   //Timer.periodic(Duration(minutes: 5), (Timer t) => getForecast());

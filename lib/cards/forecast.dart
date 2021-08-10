@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:timehub/functions.dart';
 import 'package:timehub/globals.dart' as globals;
-import 'package:timehub/cards.dart' as cards;
+import 'package:timehub/cards/cards.dart' as cards;
 import 'package:timehub/functions/time.dart' as times;
 import 'package:timehub/globals/styles.dart' as styles;
 import 'dart:async';

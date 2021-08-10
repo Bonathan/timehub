@@ -36,6 +36,9 @@ dependencies:
   webfeed: ^0.7.0
   http: ^0.13.3
   ionicons: ^0.1.2
+  spotify: ^0.6.0
+  supabase_flutter: ^0.0.6
+  supabase: ^0.0.8
 
 dev_dependencies:
   flutter_test:
