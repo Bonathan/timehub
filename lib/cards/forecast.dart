@@ -19,7 +19,9 @@ class Forecast extends StatelessWidget {
           ),
           child: ForecastWrapper(),
         ),
-        title: "Forecast");
+        title: "Forecast",
+        style: styles.text,
+        );
   }
 }
 

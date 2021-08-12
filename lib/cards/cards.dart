@@ -20,10 +20,14 @@ class UniCard extends StatelessWidget {
     Key key,
     @required this.content,
     @required this.title,
+    this.color = Colors.white,
+    @required this.style,
   }) : super(key: key);
 
   final content;
   final String title;
+  final Color color;
+  final TextStyle style;
 
   @override
   Widget build(BuildContext context) {
@@ -31,7 +35,7 @@ class UniCard extends StatelessWidget {
       margin: EdgeInsets.all(25),
       decoration: BoxDecoration(
         borderRadius: globals.borderRadius,
-        color: styles.cardBack,
+        color: this.color,
         boxShadow: globals.boxShadow,
       ),
       child: Column(
@@ -39,7 +43,7 @@ class UniCard extends StatelessWidget {
         children: [
           Container(
             margin: EdgeInsets.only(top: 25),
-            child: Text(this.title, style: styles.text),
+            child: Text(this.title, style: this.style),
             height: 75,
           ),
           Container(
