@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:timehub/functions.dart';
+import 'package:intl/intl.dart';
+import 'package:timehub/functions/weather.dart';
 import 'package:timehub/globals.dart' as globals;
 import 'package:timehub/cards/cards.dart' as cards;
 import 'package:timehub/functions/time.dart' as times;
@@ -7,21 +8,26 @@ import 'package:timehub/globals/styles.dart' as styles;
 import 'dart:async';
 import 'package:ionicons/ionicons.dart';
 
+final DateFormat formatter = DateFormat('d MMMM');
+final DateFormat formatterTime = DateFormat('HH:mm');
+var forecastIcon;
+
 class Forecast extends StatelessWidget {
   const Forecast({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return cards.UniCard(
-        content: Container(
-          margin: EdgeInsets.only(
-            top: 175,
-          ),
-          child: ForecastWrapper(),
+      content: Container(
+        margin: EdgeInsets.only(
+          top: 175,
         ),
-        title: "Forecast",
-        style: styles.text,
-        );
+        child: Container(
+            margin: EdgeInsets.only(top: 100), child: ForecastWrapper()),
+      ),
+      title: "Forecast",
+      style: styles.text,
+    );
   }
 }
 
@@ -35,26 +41,21 @@ class ForecastWrapper extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        ForecastElement(
-            addedTime: 3, icon: globals.forecastIcon[0], forecastNumber: 0),
+        ForecastElement(addedTime: 3, forecastNumber: 0),
         ForecastElement(
           addedTime: 6,
-          icon: globals.forecastIcon[1],
           forecastNumber: 1,
         ),
         ForecastElement(
           addedTime: 9,
-          icon: globals.forecastIcon[2],
           forecastNumber: 2,
         ),
         ForecastElement(
           addedTime: 12,
-          icon: globals.forecastIcon[3],
           forecastNumber: 3,
         ),
         ForecastElement(
           addedTime: 15,
-          icon: globals.forecastIcon[4],
           forecastNumber: 4,
         ),
       ],
@@ -62,52 +63,31 @@ class ForecastWrapper extends StatelessWidget {
   }
 }
 
-class ForecastElement extends StatefulWidget {
-  ForecastElement({
-    Key? key,
-    @required this.addedTime,
-    @required this.icon,
-    @required this.forecastNumber,
-  }) : super(key: key);
+class ForecastElement extends StatelessWidget {
+  ForecastElement(
+      {Key? key, @required this.addedTime, @required this.forecastNumber})
+      : super(key: key);
 
   final addedTime;
   var icon;
   var time = DateTime.now();
-  var forecastNumber;
+  final forecastNumber;
 
-  @override
-  _ForecastElementState createState() => _ForecastElementState();
-}
-
-class _ForecastElementState extends State<ForecastElement> {
   void initState() {
-    Timer(new Duration(seconds: 1), () {
-      setState(() {
-        widget.icon = getWeatherIcon(
-            globals.forecast[widget.forecastNumber].weatherIcon, Colors.black);
-        widget.time = DateTime.now();
-      });
-    });
+    this.icon = getWeatherIcon(
+        globals.forecast[this.forecastNumber].weatherIcon, Colors.black);
     Timer.periodic(new Duration(seconds: 5), (timer) {
-      setState(() {
-        widget.icon = getWeatherIcon(
-            globals.forecast[widget.forecastNumber].weatherIcon, Colors.black);
-        widget.time = DateTime.now();
-        if (widget.icon == null) {
-          setState(() {
-            widget.icon = Icon(
-              Ionicons.build_outline,
-              size: 50,
-              color: styles.trueBlack,
-            );
-          });
-        }
-      });
+      this.time = DateTime.now();
+      if (this.icon != null) {
+        this.icon = getWeatherIcon(
+            globals.forecast[this.forecastNumber].weatherIcon, Colors.black);
+      }
     });
   }
 
   @override
   Widget build(BuildContext context) {
+    initState();
     return GestureDetector(
         onTap: () {},
         child: Container(
@@ -115,15 +95,11 @@ class _ForecastElementState extends State<ForecastElement> {
           width: globals.cardWidth / 5,
           height: globals.cardWidth / 2,
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
-              widget.icon,
+              this.icon,
               Text(
-                  formatterTime.format(
-                      widget.time.add(Duration(hours: widget.addedTime))),
-                  style: styles.text),
-              Text(
-                "+${widget.addedTime} hours",
+                "+${this.addedTime} h",
                 style: styles.smallText,
               ),
             ],

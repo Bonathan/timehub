@@ -11,8 +11,6 @@ class Feed1 {
       http.read(_targetUrl).then((xmlString) => RssFeed.parse(xmlString));
 }
 
-final targetUrl = Uri.parse('https://www.becompany.ch/en/blog/feed.xml');
-
 void getFeedRss() async {
   final RssFeed feed = await Feed1().getFeed();
   globals.feed = feed;

@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:timehub/functions/supabase.dart' as supaService;
 import 'package:timehub/cards/cards.dart' as card;
 import 'package:timehub/globals/styles.dart' as styles;
-import 'package:timehub/globals.dart' as globals;
+//import 'package:timehub/globals.dart' as globals;
 import 'package:timehub/globals/widgets.dart';
+
+final TextEditingController confirmPasswd = TextEditingController();
 
 class ToDoLogin extends StatelessWidget {
   const ToDoLogin({Key? key}) : super(key: key);
@@ -36,11 +38,25 @@ class ToDoContent extends StatelessWidget {
                 child: Column(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
-                      defaultTextField(hintText: 'E-Mail'),
-                      defaultTextField(hintText: 'Password'),
-                      defaultTextField(hintText: 'Confirm password'),
+                      defaultTextField(
+                          hintText: 'E-Mail',
+                          controller: supaService.supabaseEmail),
+                      defaultTextField(
+                          hintText: 'Password',
+                          controller: supaService.supabasePasswd),
+                      defaultTextField(
+                          hintText: 'Confirm password',
+                          controller: confirmPasswd),
                       GestureDetector(
-                          onTap: () {},
+                          onTap: () {
+                            if (supaService.supabasePasswd.text ==
+                                confirmPasswd.text) {
+                              print('MATCH!!!');
+                              supaService.initSupabase();
+                            } else {
+                              print('ERROR!!! PASSWORDS DO NOT MATCH!!!');
+                            }
+                          },
                           child: Container(
                               height: 25,
                               width: 75,

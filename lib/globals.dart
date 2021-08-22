@@ -1,5 +1,5 @@
 // @dart=2.10
-import 'package:google_fonts/google_fonts.dart';
+//import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter/material.dart';
 import 'package:weather/weather.dart';
 import 'package:webfeed/domain/rss_feed.dart';
