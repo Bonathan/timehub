@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:timehub/functions/supabase.dart' as supaService;
-import 'package:timehub/cards/cards.dart' as card;
+import 'package:timehub/frontend/cards.dart' as card;
 import 'package:timehub/globals/styles.dart' as styles;
 //import 'package:timehub/globals.dart' as globals;
 import 'package:timehub/globals/widgets.dart';

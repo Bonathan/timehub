@@ -23,12 +23,12 @@ final TextStyle smallTextWhite = GoogleFonts.inter(
     textStyle: TextStyle(
         fontWeight: FontWeight.w400, fontSize: 17, color: Colors.white));
 
-final backGr = Colors.grey[100];
-final cardBack = Colors.white;
-final desaturatedRed = Colors.red[600];
-final darkGrey = Colors.grey[900];
-final trueBlack = Colors.black;
-final trueWhite = Colors.white;
+Color backGr = Color(0xFFF5F5F5); 
+Color cardBack = Colors.white;
+Color desaturatedRed = Color(0xFFE53935);
+Color darkGrey = Color(0xFF212121);
+Color trueBlack = Colors.black;
+Color trueWhite = Colors.white;
 
 final InputDecoration textFieldDeco = InputDecoration(
   border: InputBorder.none,

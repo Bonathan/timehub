@@ -1,4 +1,3 @@
-// @dart=2.10
 //import 'dart:io';
 
 import 'package:flutter/material.dart';
@@ -17,11 +16,11 @@ final DateFormat formatterTime = DateFormat('HH:mm');
 
 class UniCard extends StatelessWidget {
   const UniCard({
-    Key key,
-    @required this.content,
-    @required this.title,
+    Key? key,
+    this.content,
+    required this.title,
     this.color = Colors.white,
-    @required this.style,
+    required this.style,
   }) : super(key: key);
 
   final content;

@@ -1,18 +1,19 @@
 // @dart=2.10
 import 'dart:async';
 //import 'package:flutter/services.dart';
-//import 'package:timehub/cards/cards.dart' as cards;
+//import 'package:timehub/frontend/cards.dart' as cards;
 import 'package:flutter/material.dart';
-import 'package:timehub/cards/forecast.dart' as forecard;
+import 'package:timehub/frontend/forecast.dart' as forecard;
 //import 'package:ionicons/ionicons.dart';
-import 'package:timehub/cards/news.dart' as newscard;
+import 'package:timehub/frontend/news.dart' as newscard;
+import 'package:timehub/frontend/wrapper.dart';
 import 'package:timehub/functions/weather.dart';
 import 'package:timehub/functions/news.dart';
 import 'package:timehub/globals.dart' as globals;
 import 'package:timehub/globals/styles.dart' as styles;
 import 'package:intl/intl.dart';
 import 'package:timehub/functions/supabase.dart' as supabaseService;
-import 'package:timehub/cards/supabase.dart' as supabaseCards;
+import 'package:timehub/frontend/supabase.dart' as supabaseCards;
 
 var formattedTime;
 final DateFormat formatter = DateFormat('d MMMM');
@@ -37,7 +38,7 @@ void main() async {
   Timer.periodic(Duration(seconds: 5), (Timer t) => getWeather());
   //Timer.periodic(Duration(minutes: 5), (Timer t) => getForecast());
   Timer(new Duration(seconds: 5), () => print(globals.deviceSize));
-  runApp(MyApp());
+  runApp(MainWrapper());
 }
 
 class MyApp extends StatefulWidget {
@@ -81,7 +82,7 @@ class _CardManagerState extends State<CardManager> {
           controller: pageController,
           children: [
             //forecard.Forecast(),
-            //newscard.RssReader(),
+            newscard.RssReader(),
             supabaseCards.ToDoLogin()
           ],
         ),

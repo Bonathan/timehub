@@ -1,4 +1,3 @@
-// @dart=2.10
 //import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter/material.dart';
 import 'package:weather/weather.dart';
@@ -30,7 +29,7 @@ var currentWeatherTemp;
 var currentWeatherTempFeel;
 var weatherIcon;
 
-List<Weather> forecast;
+List<Weather> forecast = List as List<Weather>;
 var forecastIcon = List.filled(
     5,
     Icon(
@@ -42,4 +41,4 @@ var forecastIcon = List.filled(
 
 final timeDateSmall = 0;
 
-RssFeed feed;
+RssFeed feed = RssFeed as RssFeed;
