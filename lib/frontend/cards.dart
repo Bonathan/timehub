@@ -32,27 +32,25 @@ class UniCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.all(25),
+      margin: EdgeInsets.all(15),
       decoration: BoxDecoration(
         borderRadius: globals.borderRadius,
         color: this.color,
         boxShadow: globals.boxShadow,
       ),
       child: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
           Container(
-            margin: EdgeInsets.only(top: 25),
             child: Text(this.title, style: this.style),
-            height: deviceSize.height / 10,
           ),
           Container(
-            height: deviceSize.height / 1.5,
+            height: deviceSize.height / 1.6,
             child: this.content,
             margin: EdgeInsets.only(right: 5),
           ),
           Container(
-            margin: EdgeInsets.only(top: 25, bottom: 30),
+            margin: EdgeInsets.only(top: 10, bottom: 10),
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(5), color: styles.darkGrey),
             height: 5,
