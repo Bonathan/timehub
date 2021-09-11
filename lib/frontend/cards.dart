@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 //import 'package:timehub/functions.dart';
 import 'package:timehub/globals.dart' as globals;
+import 'package:timehub/globals/device.dart';
 import 'package:timehub/globals/styles.dart' as styles;
 //import 'package:timehub/screens.dart';
 //import 'package:ionicons/ionicons.dart';
@@ -43,10 +44,10 @@ class UniCard extends StatelessWidget {
           Container(
             margin: EdgeInsets.only(top: 25),
             child: Text(this.title, style: this.style),
-            height: 75,
+            height: deviceSize.height / 10,
           ),
           Container(
-            height: 450,
+            height: deviceSize.height / 1.5,
             child: this.content,
             margin: EdgeInsets.only(right: 5),
           ),

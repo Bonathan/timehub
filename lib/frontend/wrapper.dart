@@ -4,8 +4,10 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'dart:async';
 import 'package:timehub/globals/styles.dart' as styles;
+import 'package:timehub/globals/device.dart';
 import 'package:timehub/globals.dart' as globals;
-//TODO: create main view (view w/ StandardView and weather as well as swipeable cards)
+import 'package:timehub/frontend/todo.dart' as todocard;
+import 'package:timehub/frontend/news.dart' as newscard;
 
 class MainWrapper extends StatelessWidget {
   const MainWrapper({Key? key}) : super(key: key);
@@ -46,6 +48,7 @@ class StandardView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    deviceSize = MediaQuery.of(context).size;
     return Container(
         child: Column(
       children: [
@@ -87,10 +90,21 @@ class Time extends StatelessWidget {
 }
 
 class CardManager extends StatelessWidget {
-  const CardManager({Key? key}) : super(key: key);
+  CardManager({Key? key}) : super(key: key);
+
+  final pageController = PageController(initialPage: 0);
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Container(
+      width: deviceSize.width / 2 - deviceSize.width / 9,
+      child: PageView(
+        controller: pageController,
+        children: [
+          newscard.RssReader(),
+          todocard.ToDoLogin(),
+        ],
+      ),
+    );
   }
 }

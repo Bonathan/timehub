@@ -13,7 +13,7 @@ import 'package:timehub/globals.dart' as globals;
 import 'package:timehub/globals/styles.dart' as styles;
 import 'package:intl/intl.dart';
 import 'package:timehub/functions/supabase.dart' as supabaseService;
-import 'package:timehub/frontend/supabase.dart' as supabaseCards;
+import 'package:timehub/frontend/todo.dart' as supabaseCards;
 
 var formattedTime;
 final DateFormat formatter = DateFormat('d MMMM');
@@ -22,6 +22,7 @@ final pageController = PageController(initialPage: 0);
 var time = DateTime.now();
 var month;
 var hour;
+var deviceSize;
 
 void setTime() {
   globals.time = DateTime.now();
