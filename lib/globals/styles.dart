@@ -26,7 +26,7 @@ final TextStyle smallTextWhite = GoogleFonts.inter(
 Color backGr = Color(0xFFF5F5F5); 
 Color cardBack = Colors.white;
 Color desaturatedRed = Color(0xFFE53935);
-Color darkGrey = Color(0xFF212121);
+const Color darkGrey = Color(0xFF212121);
 Color trueBlack = Colors.black;
 Color trueWhite = Colors.white;
 
