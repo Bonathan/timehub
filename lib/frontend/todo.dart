@@ -5,8 +5,6 @@ import 'package:timehub/globals/styles.dart' as styles;
 //import 'package:timehub/globals.dart' as globals;
 import 'package:timehub/globals/widgets.dart';
 
-final TextEditingController confirmPasswd = TextEditingController();
-
 class ToDoLogin extends StatelessWidget {
   const ToDoLogin({Key? key}) : super(key: key);
 
@@ -19,6 +17,10 @@ class ToDoLogin extends StatelessWidget {
         color: styles.darkGrey);
   }
 }
+
+final TextEditingController supabaseEmail = TextEditingController();
+final TextEditingController supabasePasswd = TextEditingController();
+final TextEditingController confirmPasswd = TextEditingController();
 
 class ToDoContent extends StatelessWidget {
   const ToDoContent({Key? key}) : super(key: key);
@@ -38,21 +40,24 @@ class ToDoContent extends StatelessWidget {
                 child: Column(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
-                      defaultTextField(
-                          hintText: 'E-Mail',
-                          controller: supaService.supabaseEmail),
-                      defaultTextField(
-                          hintText: 'Password',
-                          controller: supaService.supabasePasswd),
-                      defaultTextField(
-                          hintText: 'Confirm password',
-                          controller: confirmPasswd),
+                      DefaultTextField(
+                          hintText: 'E-Mail', controller: supabaseEmail),
+                      DefaultTextField(
+                        hintText: 'Password',
+                        controller: supabasePasswd,
+                        hide: true,
+                      ),
+                      DefaultTextField(
+                        hintText: 'Confirm password',
+                        controller: confirmPasswd,
+                        hide: true,
+                      ),
                       GestureDetector(
                           onTap: () {
-                            if (supaService.supabasePasswd.text ==
-                                confirmPasswd.text) {
+                            if (supabasePasswd.text == confirmPasswd.text) {
                               print('MATCH!!!');
-                              supaService.initSupabase();
+                              supaService.supabaseLogin(
+                                  supabasePasswd.text, supabaseEmail.text);
                             } else {
                               print('ERROR!!! PASSWORDS DO NOT MATCH!!!');
                             }

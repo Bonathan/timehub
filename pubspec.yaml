@@ -39,6 +39,7 @@ dependencies:
   spotify: ^0.6.0
   supabase_flutter: ^0.0.6
   supabase: ^0.0.8
+  shared_preferences: ^2.0.7
 
 dev_dependencies:
   flutter_test:

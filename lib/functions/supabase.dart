@@ -1,18 +1,22 @@
 import 'package:flutter/cupertino.dart';
 import 'package:supabase/supabase.dart';
+import 'package:timehub/functions/shared_prefs.dart';
 import 'package:timehub/private_keys.dart' as privatekeys;
 
-final TextEditingController supabaseEmail = TextEditingController();
-final TextEditingController supabasePasswd = TextEditingController();
 var session;
 
-final client = SupabaseClient(privatekeys.supabaseKey, privatekeys.supabaseUrl);
+final client = SupabaseClient(privatekeys.supabaseUrl, privatekeys.supabaseKey);
 
-void initSupabase() async {
-  final response = await client.auth.signUp(supabaseEmail.text, supabasePasswd.text);
+void supabaseLogin(email, passwd) async {
+  final response =
+      await client.auth.signUp(email, passwd);
+
   if (response.error != null) {
-    print('Error occured in the supabase function. ${response.error?.message}');
+    // Error
+    print('Error: ${response.error?.message}');
   } else {
-    print('Success: ${response.data}');
+    // Success
+    final session = response.data;
+    saveSupabaseSession(session!.persistSessionString);
   }
 }
