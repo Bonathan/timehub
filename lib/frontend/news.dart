@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:timehub/functions/news.dart';
-import 'package:timehub/frontend/cards.dart' as cards;
+import 'package:timehub/frontend/card.dart' as cards;
 import 'package:timehub/globals/styles.dart' as styles;
 
 class RssReader extends StatelessWidget {

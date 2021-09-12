@@ -22,14 +22,19 @@ class Feed extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     getFeedRss();
-    return ListView.builder(
-        itemCount: 15,
-        itemBuilder: (BuildContext ctxt, int index) {
-          final item = globals.feed.items![index];
-          return ListTile(
-            contentPadding: EdgeInsets.fromLTRB(35, 3, 45, 3),
-            title: Text(item.title.toString(), style: styles.smallText),
-          );
-        });
+    return ListView.separated(
+      itemCount: 15,
+      itemBuilder: (BuildContext ctxt, int index) {
+        final item = globals.feed.items![index];
+        return ListTile(
+          contentPadding: EdgeInsets.fromLTRB(35, 3, 45, 3),
+          title: Text(item.title.toString(), style: styles.smallText),
+        );
+      },
+      separatorBuilder: (BuildContext context, int index) => Container(
+        child: Divider(),
+        padding: EdgeInsets.only(right: 75, left: 35),
+      ),
+    );
   }
 }
