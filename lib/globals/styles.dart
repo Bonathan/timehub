@@ -35,3 +35,7 @@ final InputDecoration textFieldDeco = InputDecoration(
   fillColor: Colors.grey[200],
   filled: true,
 );
+
+final boxShadow = [
+  BoxShadow(color: Colors.grey.withOpacity(0.5), blurRadius: 10)
+];
