@@ -17,18 +17,19 @@ class UniCard extends StatelessWidget {
     required this.title,
     this.color = Colors.white,
     required this.style,
+    this.swipeColor = styles.darkGrey,
   }) : super(key: key);
 
   final content;
   final String title;
   final Color color;
   final TextStyle style;
+  final swipeColor;
 
   @override
   Widget build(BuildContext context) {
-    
     //the container is the card
-    
+
     return Container(
       margin: EdgeInsets.all(15),
       decoration: BoxDecoration(
@@ -37,20 +38,18 @@ class UniCard extends StatelessWidget {
         boxShadow: styles.boxShadow,
       ),
       child: Column(
-        
         //Column has the title, content and swipe indicator
-        
+
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
-          
           //title
-          
+
           Container(
             child: Text(this.title, style: this.style),
           ),
-          
+
           //content
-          
+
           Container(
             height: deviceSize.height / 1.6,
             child: this.content,
@@ -58,7 +57,7 @@ class UniCard extends StatelessWidget {
           ),
 
           //swipe indicator
-          
+
           Container(
             margin: EdgeInsets.only(top: 10, bottom: 10),
             decoration: BoxDecoration(
