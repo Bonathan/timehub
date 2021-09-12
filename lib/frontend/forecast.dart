@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:timehub/functions/weather.dart';
 import 'package:timehub/globals.dart' as globals;
-import 'package:timehub/frontend/cards.dart' as cards;
+import 'package:timehub/frontend/card.dart' as cards;
 //import 'package:timehub/functions/time.dart' as times;
 import 'package:timehub/globals/styles.dart' as styles;
 import 'dart:async';
