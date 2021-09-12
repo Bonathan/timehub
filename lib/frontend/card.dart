@@ -1,19 +1,14 @@
-//import 'dart:io';
-
 import 'package:flutter/material.dart';
-//import 'package:timehub/functions.dart';
 import 'package:timehub/globals.dart' as globals;
 import 'package:timehub/globals/device.dart';
 import 'package:timehub/globals/styles.dart' as styles;
-//import 'package:timehub/screens.dart';
-//import 'package:ionicons/ionicons.dart';
-//import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
-//import 'package:webfeed/webfeed.dart';
-//import 'dart:async';
-//import 'package:material_clock/material_clock.dart' as materialClock;
 
 final DateFormat formatterTime = DateFormat('HH:mm');
+
+//one reusable card, so that the code is simpler
+//needs content, title and title textstyle
+//background color defaults to white, overrideable
 
 class UniCard extends StatelessWidget {
   const UniCard({
@@ -31,6 +26,9 @@ class UniCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    
+    //the container is the card
+    
     return Container(
       margin: EdgeInsets.all(15),
       decoration: BoxDecoration(
@@ -39,16 +37,28 @@ class UniCard extends StatelessWidget {
         boxShadow: styles.boxShadow,
       ),
       child: Column(
+        
+        //Column has the title, content and swipe indicator
+        
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
+          
+          //title
+          
           Container(
             child: Text(this.title, style: this.style),
           ),
+          
+          //content
+          
           Container(
             height: deviceSize.height / 1.6,
             child: this.content,
             margin: EdgeInsets.only(right: 5),
           ),
+
+          //swipe indicator
+          
           Container(
             margin: EdgeInsets.only(top: 10, bottom: 10),
             decoration: BoxDecoration(
