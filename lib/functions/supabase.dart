@@ -1,7 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:supabase/supabase.dart';
 import 'package:timehub/private_keys.dart' as privatekeys;
-//import 'package:timehub/globals/auth.dart' as auth;
 
 final TextEditingController supabaseEmail = TextEditingController();
 final TextEditingController supabasePasswd = TextEditingController();

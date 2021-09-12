@@ -3,10 +3,8 @@ import 'package:intl/intl.dart';
 import 'package:timehub/functions/weather.dart';
 import 'package:timehub/globals.dart' as globals;
 import 'package:timehub/frontend/card.dart' as cards;
-//import 'package:timehub/functions/time.dart' as times;
 import 'package:timehub/globals/styles.dart' as styles;
 import 'dart:async';
-//import 'package:ionicons/ionicons.dart';
 
 final DateFormat formatter = DateFormat('d MMMM');
 final DateFormat formatterTime = DateFormat('HH:mm');
@@ -30,6 +28,8 @@ class Forecast extends StatelessWidget {
     );
   }
 }
+
+//returns five elements, weather in 3 hours, 6 hours, 9 hours, etc
 
 class ForecastWrapper extends StatelessWidget {
   const ForecastWrapper({Key? key}) : super(key: key);
